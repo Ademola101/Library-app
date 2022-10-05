@@ -1,7 +1,11 @@
 import React from 'react';
 import { Book } from '../../types';
-const Books = (props) => {
-  if (!props.show) {
+
+interface Props {
+  show: boolean
+}
+const Books = ({ show }: Props) => {
+  if (!show) {
     return null;
   }
 

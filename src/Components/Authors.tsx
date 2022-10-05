@@ -1,8 +1,10 @@
 import React from 'react';
 import { Author } from '../../types';
-
-const Authors = (props) => {
-  if (!props.show) {
+interface Props {
+  show: boolean
+}
+const Authors = ({ show }:Props) => {
+  if (!show) {
     return null;
   }
   const authors: Array<Author> = [];
