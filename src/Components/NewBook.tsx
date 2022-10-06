@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { Book } from '../../types';
 import InputLabel from './InputLabel';
+import { useMutation } from '@apollo/client';
+import { CREATEBOOK } from '../queries';
 
 interface Props {
   show: boolean
 }
 const NewBook = ({ show }:Props) => {
+
+  const [createBook] = useMutation(CREATEBOOK);
   const [Book, setBook] = useState<Book>({
     title: '',
     author: '',
@@ -19,8 +23,37 @@ const NewBook = ({ show }:Props) => {
     return null;
   }
 
-  const submit = async (event:React.SyntheticEvent) => {
-    event.preventDefault();
+  const submit = async (e:React.SyntheticEvent) => {
+    e.preventDefault();
+
+    const { title, author, published, genres } = Book;
+
+    try {
+
+      createBook({
+        variables: {
+          title,
+          author,
+          published,
+          genres
+        }
+      });
+
+      setBook({
+        title: '',
+        author: '',
+        published: '',
+        genres: []
+
+      });
+
+    } catch (error) {
+
+      console.log(error);
+
+
+    }
+
 
   };
 

@@ -27,3 +27,22 @@ query {
 
 
 `;
+
+export const CREATEBOOK = gql`
+
+mutation createBook($title : String!, $author : String!, $published : String!, $genres : [String!]) {
+  addBook (
+    title: $title,
+    author: $author,
+    published: $published,
+    genres: $genres
+  ) {
+    title
+    author
+    published
+    genres
+  }
+}
+
+
+`;

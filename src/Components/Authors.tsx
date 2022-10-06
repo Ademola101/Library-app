@@ -17,7 +17,7 @@ const Authors = ({ show }:Props) => {
   }
 
 
-  const authors: Array<Author> = data.allAuthors;
+  const authors: Array<Author> = data?.allAuthors;
   if (!show) {
     return null;
   }
@@ -32,7 +32,7 @@ const Authors = ({ show }:Props) => {
             <th>born</th>
             <th>books</th>
           </tr>
-          {authors.map((a) => (
+          {authors?.map((a) => (
             <tr key={a.name}>
               <td>{a.name}</td>
               <td>{a.born}</td>
