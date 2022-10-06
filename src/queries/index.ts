@@ -12,3 +12,18 @@ export const ALL_AUTHORS = gql`
   }
 
 `;
+
+export const ALL_BOOKS_WITHOUT_GENRE  = gql`
+
+query {
+  allBooks {
+    author
+    title
+    published
+    id
+
+  }
+}
+
+
+`;

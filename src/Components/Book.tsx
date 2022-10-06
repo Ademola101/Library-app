@@ -1,5 +1,8 @@
 import React from 'react';
 import { Book } from '../../types';
+import { useQuery } from '@apollo/client';
+import { ALL_BOOKS_WITHOUT_GENRE } from '../queries';
+
 
 interface Props {
   show: boolean
@@ -8,8 +11,20 @@ const Books = ({ show }: Props) => {
   if (!show) {
     return null;
   }
+  const { data, loading } = useQuery(ALL_BOOKS_WITHOUT_GENRE);
 
-  const books: Array<Book> = [];
+
+  if (loading) {
+    return (
+      <div>
+        loading...</div>
+    );
+  }
+
+  const books: Array<Book> = data.allBooks;
+
+
+
 
   return (
     <div>

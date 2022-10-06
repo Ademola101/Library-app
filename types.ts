@@ -9,6 +9,6 @@ export interface Book {
   title: string;
   published: string;
   author: string;
-  genres: string[];
+  genres?: string[];
 }
 

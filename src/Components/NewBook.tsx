@@ -33,7 +33,7 @@ const NewBook = ({ show }:Props) => {
   };
 
   const addGenre = () => {
-    setBook({ ...Book, genres: Book.genres.concat(genre) });
+    setBook({ ...Book, genres: Book.genres?.concat(genre) });
     setGenre('');
   };
 
@@ -49,7 +49,7 @@ const NewBook = ({ show }:Props) => {
           <button type="button" onClick={addGenre}> + </button>
         </InputLabel>
         <div>
-          genres: {Book.genres.join(' ')}
+          genres: {Book.genres?.join(' ')}
         </div>
         <button type="submit">create book</button>
 
