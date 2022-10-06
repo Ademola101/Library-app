@@ -8,13 +8,14 @@ interface Props {
   show: boolean
 }
 const Books = ({ show }: Props) => {
+  const { data, loading } = useQuery(ALL_BOOKS_WITHOUT_GENRE);
   if (!show) {
     return null;
   }
-  const { data, loading } = useQuery(ALL_BOOKS_WITHOUT_GENRE);
 
 
-  if (loading) {
+
+  if (loading && show) {
     return (
       <div>
         loading...</div>

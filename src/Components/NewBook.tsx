@@ -32,6 +32,12 @@ const NewBook = ({ show }:Props) => {
 
   };
 
+  const handleGenreChange:React.ChangeEventHandler<HTMLInputElement> = (e) => {
+
+    setGenre(e.target.value);
+
+  };
+
   const addGenre = () => {
     setBook({ ...Book, genres: Book.genres?.concat(genre) });
     setGenre('');
@@ -44,7 +50,7 @@ const NewBook = ({ show }:Props) => {
         <InputLabel labelName='title' value={Book.title} placeholder = 'Enter title' onChange={OnChange} name = 'title'/>
         <InputLabel labelName='author' value={Book.author} placeholder = 'Enter author' onChange={OnChange} name = 'author'/>
         <InputLabel labelName='published' value={Book.published} placeholder = 'Enter publish' onChange={OnChange} name = 'published'/>
-        <InputLabel labelName='genre' value={genre} placeholder = 'Enter genre' onChange={OnChange} name = 'genre'>
+        <InputLabel labelName='genre'  placeholder = 'Enter genre' value= {genre} onChange={handleGenreChange} name = 'genre'>
 
           <button type="button" onClick={addGenre}> + </button>
         </InputLabel>

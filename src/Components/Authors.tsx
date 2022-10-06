@@ -7,9 +7,6 @@ interface Props {
 }
 const Authors = ({ show }:Props) => {
 
-  if (!show) {
-    return null;
-  }
 
   const { data, loading } = useQuery(ALL_AUTHORS);
 
@@ -21,6 +18,9 @@ const Authors = ({ show }:Props) => {
 
 
   const authors: Array<Author> = data.allAuthors;
+  if (!show) {
+    return null;
+  }
 
   return (
     <div>
