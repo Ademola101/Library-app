@@ -2,14 +2,18 @@ import React, { useState } from 'react';
 import { Book } from '../../types';
 import InputLabel from './InputLabel';
 import { useMutation } from '@apollo/client';
-import { CREATEBOOK } from '../queries';
+import { CREATEBOOK, ALL_BOOKS_WITHOUT_GENRE } from '../queries';
 
 interface Props {
   show: boolean
 }
 const NewBook = ({ show }:Props) => {
 
-  const [createBook] = useMutation(CREATEBOOK);
+  const [createBook] = useMutation(CREATEBOOK, {
+    refetchQueries: [{
+      query: ALL_BOOKS_WITHOUT_GENRE
+    }]
+  });
   const [Book, setBook] = useState<Book>({
     title: '',
     author: '',
@@ -36,7 +40,7 @@ const NewBook = ({ show }:Props) => {
           author,
           published,
           genres
-        }
+        },
       });
 
       setBook({

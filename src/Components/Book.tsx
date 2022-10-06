@@ -22,7 +22,7 @@ const Books = ({ show }: Props) => {
     );
   }
 
-  const books: Array<Book> = data.allBooks;
+  const books: Array<Book> = data?.allBooks;
 
 
 
@@ -38,7 +38,7 @@ const Books = ({ show }: Props) => {
             <th>author</th>
             <th>published</th>
           </tr>
-          {books.map((a) => (
+          {books?.map((a) => (
             <tr key={a.title}>
               <td>{a.title}</td>
               <td>{a.author}</td>
