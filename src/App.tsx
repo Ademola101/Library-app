@@ -9,9 +9,9 @@ function App() {
   return (
     <div>
       <div>
-        <button onClick={() => setPage('authors')}>authors</button>
-        <button onClick={() => setPage('books')}>books</button>
-        <button onClick={() => setPage('add')}>add book</button>
+        <button type='button' onClick={() => setPage('authors')}>authors</button>
+        <button type='button' onClick={() => setPage('books')}>books</button>
+        <button type='button' onClick={() => setPage('add')}>add book</button>
       </div>
 
       <Authors show={page === 'authors'} />

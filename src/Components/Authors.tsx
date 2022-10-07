@@ -2,6 +2,7 @@ import React from 'react';
 import { Author } from '../../types';
 import { ALL_AUTHORS } from '../queries';
 import { useQuery } from '@apollo/client';
+import BornYearForm from './BirthYearForm';
 interface Props {
   show: boolean
 }
@@ -32,8 +33,8 @@ const Authors = ({ show }:Props) => {
             <th>born</th>
             <th>books</th>
           </tr>
-          {authors?.map((a) => (
-            <tr key={a.name}>
+          {authors?.map((a,i) => (
+            <tr key={i}>
               <td>{a.name}</td>
               <td>{a.born}</td>
               <td>{a.bookCount}</td>
@@ -41,6 +42,8 @@ const Authors = ({ show }:Props) => {
           ))}
         </tbody>
       </table>
+
+      <BornYearForm/>
     </div>
   );
 };

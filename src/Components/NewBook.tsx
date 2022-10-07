@@ -34,7 +34,7 @@ const NewBook = ({ show }:Props) => {
 
     try {
 
-      createBook({
+      await createBook({
         variables: {
           title,
           author,
